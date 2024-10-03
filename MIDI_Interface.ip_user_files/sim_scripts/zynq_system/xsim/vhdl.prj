@@ -1,0 +1,11 @@
+vhdl xil_defaultlib  \
+"../../../../MIDI_Interface.gen/sources_1/bd/zynq_system/bd/fifo_map_inst_0/ipshared/5a01/src/mm_regmap.vhd" \
+"../../../../MIDI_Interface.gen/sources_1/bd/zynq_system/bd/fifo_map_inst_0/ipshared/5a01/src/axi_regmap.vhd" \
+"../../../../MIDI_Interface.gen/sources_1/bd/zynq_system/bd/fifo_map_inst_0/ip/fifo_map_inst_0_axi_regmap_0_0/sim/fifo_map_inst_0_axi_regmap_0_0.vhd" \
+"../../../../MIDI_Interface.gen/sources_1/bd/zynq_system/bd/fifo_map_inst_0/ip/fifo_map_inst_0_fifo_adapter_0_0/sim/fifo_map_inst_0_fifo_adapter_0_0.vhd" \
+"../../../../MIDI_Interface.gen/sources_1/bd/zynq_system/bd/fifo_map_inst_0/sim/fifo_map_inst_0.vhd" \
+"../../../bd/zynq_system/ip/zynq_system_fifo_reader_0_0/sim/zynq_system_fifo_reader_0_0.vhd" \
+"../../../bd/zynq_system/ip/zynq_system_rst_ps7_0_100M_1/sim/zynq_system_rst_ps7_0_100M_1.vhd" \
+"../../../bd/zynq_system/sim/zynq_system.vhd" \
+
+nosort
