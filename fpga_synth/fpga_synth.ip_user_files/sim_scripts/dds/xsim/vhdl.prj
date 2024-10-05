@@ -1,0 +1,8 @@
+vhdl xil_defaultlib  \
+"c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/fpga_synth/fpga_synth.gen/sources_1/bd/dds/ip/dds_processing_system7_0_0/dds_processing_system7_0_0_sim_netlist.vhdl" \
+"../../../bd/dds/ip/dds_dds_compiler_0_1/sim/dds_dds_compiler_0_1.vhd" \
+"../../../bd/dds/ip/dds_dds_compiler_1_1/sim/dds_dds_compiler_1_1.vhd" \
+"../../../bd/dds/ip/dds_ila_0_0/sim/dds_ila_0_0.vhd" \
+"../../../bd/dds/sim/dds.vhd" \
+
+nosort
