@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB749E35B07ECAE88",
+      "boundary_crc": "0x999F0B8C0A4C0874",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../MIDI_Interface.gen/sources_1/bd/group_0",
       "name": "group_0",
@@ -13,8 +13,8 @@
     "design_tree": {
       "axi_regmap_0": "",
       "fifo_adapter_0": "",
-      "fifo_reader_0": "",
-      "param_file_0": ""
+      "param_file_0": "",
+      "fifo_reader_0": ""
     },
     "interface_ports": {
       "S_AXI": {
@@ -188,11 +188,6 @@
         "left": "31",
         "right": "0"
       },
-      "note_frequency_0": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
       "note_off_0": {
         "direction": "O"
       },
@@ -239,6 +234,11 @@
       "waveform_sel_0": {
         "direction": "O",
         "left": "1",
+        "right": "0"
+      },
+      "note_index": {
+        "direction": "O",
+        "left": "6",
         "right": "0"
       }
     },
@@ -326,94 +326,6 @@
           }
         }
       },
-      "fifo_reader_0": {
-        "vlnv": "xilinx.com:module_ref:fifo_reader:1.0",
-        "xci_name": "group_0_fifo_reader_0_0",
-        "xci_path": "ip\\group_0_fifo_reader_0_0\\group_0_fifo_reader_0_0.xci",
-        "inst_hier_path": "fifo_reader_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "fifo_reader",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "zynq_system_processing_system7_0_1_FCLK_CLK0",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH"
-              }
-            }
-          },
-          "not_empty": {
-            "direction": "I"
-          },
-          "pop_ctrl_en": {
-            "direction": "I"
-          },
-          "pop_ctrl": {
-            "direction": "I"
-          },
-          "pop_data": {
-            "direction": "O"
-          },
-          "data_in": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "data_valid": {
-            "direction": "O"
-          },
-          "trigger": {
-            "direction": "O"
-          },
-          "note_frequency": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "velocity": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "note_on": {
-            "direction": "O"
-          },
-          "note_off": {
-            "direction": "O"
-          },
-          "param_write": {
-            "direction": "O"
-          },
-          "param_number": {
-            "direction": "O",
-            "left": "6",
-            "right": "0"
-          },
-          "param_value": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          }
-        }
-      },
       "param_file_0": {
         "vlnv": "xilinx.com:module_ref:param_file:1.0",
         "xci_name": "group_0_param_file_0_0",
@@ -478,6 +390,94 @@
             "right": "0"
           }
         }
+      },
+      "fifo_reader_0": {
+        "vlnv": "xilinx.com:module_ref:fifo_reader:1.0",
+        "xci_name": "group_0_fifo_reader_0_0",
+        "xci_path": "ip\\group_0_fifo_reader_0_0\\group_0_fifo_reader_0_0.xci",
+        "inst_hier_path": "fifo_reader_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "fifo_reader",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "zynq_system_processing_system7_0_1_FCLK_CLK0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH"
+              }
+            }
+          },
+          "not_empty": {
+            "direction": "I"
+          },
+          "pop_ctrl_en": {
+            "direction": "I"
+          },
+          "pop_ctrl": {
+            "direction": "I"
+          },
+          "pop_data": {
+            "direction": "O"
+          },
+          "data_in": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "data_valid": {
+            "direction": "O"
+          },
+          "trigger": {
+            "direction": "O"
+          },
+          "note": {
+            "direction": "O",
+            "left": "6",
+            "right": "0"
+          },
+          "velocity": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "note_on": {
+            "direction": "O"
+          },
+          "note_off": {
+            "direction": "O"
+          },
+          "param_write": {
+            "direction": "O"
+          },
+          "param_number": {
+            "direction": "O",
+            "left": "6",
+            "right": "0"
+          },
+          "param_value": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -532,10 +532,10 @@
           "data_valid_0"
         ]
       },
-      "fifo_reader_0_note_frequency": {
+      "fifo_reader_0_note": {
         "ports": [
-          "fifo_reader_0/note_frequency",
-          "note_frequency_0"
+          "fifo_reader_0/note",
+          "note_index"
         ]
       },
       "fifo_reader_0_note_off": {
