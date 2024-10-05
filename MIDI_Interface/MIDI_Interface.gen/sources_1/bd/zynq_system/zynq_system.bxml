@@ -2,10 +2,34 @@
 <Root MajorVersion="0" MinorVersion="39">
   <CompositeFile CompositeFileTopName="zynq_system" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1727969062"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1727969062"/>
-    <Generation Name="SIMULATION" State="STALE" Timestamp="1727969062"/>
-    <Generation Name="HW_HANDOFF" State="STALE" Timestamp="1727969062"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1728101680"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1728101680"/>
+    <Generation Name="SIMULATION" State="STALE" Timestamp="1728101680"/>
+    <Generation Name="HW_HANDOFF" State="STALE" Timestamp="1728101680"/>
     <FileCollection Name="SOURCES" Type="SOURCES"/>
+    <BlockContainerCollection>
+      <BlockContainer InstPath="/hier_0" IsPR="false" State="Stale">
+        <ActiveVariantSynth FileName="bd\group_0_inst_0\group_0_inst_0.bd"/>
+        <ActiveVariantSim FileName="bd\group_0_inst_0\group_0_inst_0.bd"/>
+        <VariantsCollection>
+          <BDFile BDFilePath="bd\group_0_inst_0\group_0_inst_0.bd" BDFileset="group_0_inst_0" BDSourceFile="..\..\..\..\MIDI_Interface.srcs\sources_1\bd\group_0\group_0.bd" BDSourceFileset="sources_1" BDVariantType="ALL"/>
+        </VariantsCollection>
+      </BlockContainer>
+    </BlockContainerCollection>
+    <ReferenceCollection>
+      <ModuleReference TargetName="group_0" Type="Block Design" SubInstancePath="zynq_system_group_0_0">
+        <TopFile Name="..\..\..\..\MIDI_Interface.srcs\sources_1\bd\group_0\group_0.bd"/>
+        <FileCollection>
+          <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\new\fifo_adapter.vhd"/>
+          <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\new\fifo_reader.vhd"/>
+          <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\imports\sources_1\new\adsr_config.vhd"/>
+          <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\imports\sources_1\imports\new\dflipflop.vhd"/>
+          <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\imports\sources_1\imports\new\n_parallel_register.vhd"/>
+          <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\imports\sources_1\new\ranger_mapper.vhd"/>
+          <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\imports\sources_1\new\param_file.vhd"/>
+          <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\bd\group_0\group_0.bd"/>
+        </FileCollection>
+      </ModuleReference>
+    </ReferenceCollection>
   </CompositeFile>
 </Root>
