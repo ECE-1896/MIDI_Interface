@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface.runs/synth_1/zynq_system_wrapper.tcl"
+  variable script "C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.runs/synth_1/zynq_system_wrapper.tcl"
   variable category "vivado_synth"
 }
 
@@ -78,28 +78,33 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface.cache/wt [current_project]
-set_property parent.project_path C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.cache/wt [current_project]
+set_property parent.project_path C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_repo_paths {
-  c:/Users/Matt/AppData/Roaming/Xilinx/ip_repo
-  c:/Users/Matt/Documents/Vivado_Projects/ip_repo
+  c:/Users/tyqca/AppData/Roaming/Xilinx/ip_repo
+  c:/Users/Matt/Documents/AppData/Roaming/Xilinx/ip_repo
+  c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/ip_repo
+  c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/ip_repo
 } [current_project]
 update_ip_catalog
-set_property ip_output_repo c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface.cache/ip [current_project]
+set_property ip_output_repo c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_vhdl -library xil_defaultlib C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/hdl/zynq_system_wrapper.vhd
-add_files C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface.srcs/sources_1/bd/zynq_system/zynq_system.bd
-set_property used_in_implementation false [get_files -all c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/ip/zynq_system_processing_system7_0_1/zynq_system_processing_system7_0_1.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/ip/zynq_system_rst_ps7_0_100M_1/zynq_system_rst_ps7_0_100M_1_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/ip/zynq_system_rst_ps7_0_100M_1/zynq_system_rst_ps7_0_100M_1.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/ip/zynq_system_rst_ps7_0_100M_1/zynq_system_rst_ps7_0_100M_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/ip/zynq_system_auto_pc_0/zynq_system_auto_pc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/zynq_system_ooc.xdc]
+read_vhdl -library xil_defaultlib C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/hdl/zynq_system_wrapper.vhd
+add_files C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/bd/group_0_inst_0/group_0_inst_0.bd
+set_property used_in_implementation false [get_files -all C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/bd/group_0_inst_0/group_0_inst_0_ooc.xdc]
+
+add_files C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.srcs/sources_1/bd/zynq_system/zynq_system.bd
+set_property used_in_implementation false [get_files -all c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/ip/zynq_system_processing_system7_0_1/zynq_system_processing_system7_0_1.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/ip/zynq_system_rst_ps7_0_100M_1/zynq_system_rst_ps7_0_100M_1_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/ip/zynq_system_rst_ps7_0_100M_1/zynq_system_rst_ps7_0_100M_1.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/ip/zynq_system_rst_ps7_0_100M_1/zynq_system_rst_ps7_0_100M_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/ip/zynq_system_auto_pc_0/zynq_system_auto_pc_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/MIDI_Interface/MIDI_Interface.gen/sources_1/bd/zynq_system/zynq_system_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -110,6 +115,9 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc C:/Users/Matt/Documents/Vivado_Projects/various_1195_files/PYNQ-data/PYNQ-Z1_C.xdc
+set_property used_in_implementation false [get_files C:/Users/Matt/Documents/Vivado_Projects/various_1195_files/PYNQ-data/PYNQ-Z1_C.xdc]
+
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1

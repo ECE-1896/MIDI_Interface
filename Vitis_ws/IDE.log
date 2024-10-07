@@ -1,0 +1,18 @@
+03:48:03 INFO  : Platform repository initialization has completed.
+03:48:03 INFO  : Registering command handlers for Vitis TCF services
+03:48:03 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\Matt\Documents\Vivado_Projects\MIDI_Interface\Vitis_ws\temp_xsdb_launch_script.tcl
+03:48:06 INFO  : XSCT server has started successfully.
+03:48:06 INFO  : Successfully done setting XSCT server connection channel  
+03:48:06 INFO  : plnx-install-location is set to ''
+03:48:08 INFO  : Successfully done setting workspace for the tool. 
+03:48:08 INFO  : Successfully done query RDI_DATADIR 
+04:03:53 INFO  : Result from executing command 'getProjects': zynq_system_wrapper
+04:03:53 INFO  : Result from executing command 'getPlatforms': 
+04:03:53 WARN  : An unexpected exception occurred in the module 'platform project logging'
+04:03:53 INFO  : Platform 'zynq_system_wrapper' is added to custom repositories.
+04:03:57 INFO  : Platform 'zynq_system_wrapper' is added to custom repositories.
+05:46:27 INFO  : Result from executing command 'getProjects': zynq_system_wrapper
+05:46:27 INFO  : Result from executing command 'getPlatforms': zynq_system_wrapper|C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/Vitis_ws/zynq_system_wrapper/export/zynq_system_wrapper/zynq_system_wrapper.xpfm
+05:46:28 INFO  : Checking for BSP changes to sync application flags for project 'MIDI_decoder'...
+06:01:11 INFO  : Checking for BSP changes to sync application flags for project 'MIDI_decoder'...
+06:02:13 INFO  : Checking for BSP changes to sync application flags for project 'MIDI_decoder'...

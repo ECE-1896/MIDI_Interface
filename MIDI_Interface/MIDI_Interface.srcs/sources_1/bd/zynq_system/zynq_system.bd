@@ -1,11 +1,11 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x8E4AEB60508DF181",
+      "boundary_crc": "0xCC6CFA533DC59CAD",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../MIDI_Interface.gen/sources_1/bd/zynq_system",
       "name": "zynq_system",
-      "pfm_name": "vendor:lib:zynq_system:1.0",
+      "pfm_name": "xilinx:board:Midi:0.0",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
       "tool_version": "2021.1",
@@ -19,7 +19,9 @@
         }
       },
       "rst_ps7_0_100M": "",
-      "hier_0": ""
+      "hier_0": "",
+      "envelope_stub_0": "",
+      "oscilator_stub_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -87,68 +89,6 @@
             "value_src": "default"
           }
         }
-      }
-    },
-    "ports": {
-      "data_valid_0": {
-        "direction": "O"
-      },
-      "note_frequency_0": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "note_off_0": {
-        "direction": "O"
-      },
-      "note_on_0": {
-        "direction": "O"
-      },
-      "trigger_0": {
-        "direction": "O"
-      },
-      "velocity_0": {
-        "direction": "O",
-        "left": "7",
-        "right": "0"
-      },
-      "count_0": {
-        "type": "data",
-        "direction": "O",
-        "left": "7",
-        "right": "0",
-        "parameters": {
-          "LAYERED_METADATA": {
-            "value": "undef",
-            "value_src": "default"
-          }
-        }
-      },
-      "mod_adsr_0": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "vca_adsr_0": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "vcf_adsr_0": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "waveform_sel_0": {
-        "direction": "O",
-        "left": "1",
-        "right": "0"
-      },
-      "pop_ctrl_0": {
-        "direction": "I"
-      },
-      "pop_ctrl_en_0": {
-        "direction": "I"
       }
     },
     "components": {
@@ -272,11 +212,26 @@
           "PCW_MIO_49_SLEW": {
             "value": "slow"
           },
+          "PCW_MIO_8_IOTYPE": {
+            "value": "LVCMOS 3.3V"
+          },
+          "PCW_MIO_8_SLEW": {
+            "value": "slow"
+          },
+          "PCW_MIO_9_IOTYPE": {
+            "value": "LVCMOS 3.3V"
+          },
+          "PCW_MIO_9_PULLUP": {
+            "value": "enabled"
+          },
+          "PCW_MIO_9_SLEW": {
+            "value": "slow"
+          },
           "PCW_MIO_TREE_PERIPHERALS": {
-            "value": "unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#UART 1#UART 1#unassigned#unassigned#unassigned#unassigned"
+            "value": "unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#UART 1#UART 1#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned"
           },
           "PCW_MIO_TREE_SIGNALS": {
-            "value": "unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#tx#rx#unassigned#unassigned#unassigned#unassigned"
+            "value": "unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#tx#rx#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned#unassigned"
           },
           "PCW_M_AXI_GP0_ENABLE_STATIC_REMAP": {
             "value": "1"
@@ -291,7 +246,7 @@
             "value": "1"
           },
           "PCW_UART1_UART1_IO": {
-            "value": "MIO 48 .. 49"
+            "value": "MIO 8 .. 9"
           },
           "PCW_UART_PERIPHERAL_FREQMHZ": {
             "value": "100"
@@ -309,6 +264,9 @@
             "value": "0"
           },
           "PCW_USE_AXI_NONSECURE": {
+            "value": "0"
+          },
+          "PCW_USE_FABRIC_INTERRUPT": {
             "value": "0"
           },
           "PCW_USE_M_AXI_GP0": {
@@ -857,7 +815,7 @@
                 "value_src": "strong"
               },
               "ASSOCIATED_RESET": {
-                "value": "S_AXI_ARESETN:rst",
+                "value": "rst:S_AXI_ARESETN",
                 "value_src": "strong"
               },
               "CLK_DOMAIN": {
@@ -905,11 +863,6 @@
             "direction": "O"
           },
           "mod_adsr_0": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "note_frequency_0": {
             "direction": "O",
             "left": "31",
             "right": "0"
@@ -962,6 +915,11 @@
             "direction": "O",
             "left": "1",
             "right": "0"
+          },
+          "note_index": {
+            "direction": "O",
+            "left": "6",
+            "right": "0"
           }
         },
         "post_compiled_compname": "group_0_inst_0",
@@ -969,12 +927,157 @@
         "variant_info": {
           "group_0.bd": {
             "scoped_diagram": "group_0_inst_0.bd",
-            "design_checksum": "0x8AE0A753",
+            "design_checksum": "0xE2084E3E",
             "ref_name": "group_0",
             "ref_subinst_path": "zynq_system_group_0_0",
             "ref_type": "Block Design",
             "source_type": "all",
             "active": "all"
+          }
+        }
+      },
+      "envelope_stub_0": {
+        "vlnv": "xilinx.com:module_ref:envelope_stub:1.0",
+        "xci_name": "zynq_system_envelope_stub_0_0",
+        "xci_path": "ip\\zynq_system_envelope_stub_0_0\\zynq_system_envelope_stub_0_0.xci",
+        "inst_hier_path": "envelope_stub_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "envelope_stub",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "zynq_system_processing_system7_0_1_FCLK_CLK0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "const_prop"
+              }
+            }
+          },
+          "note_on": {
+            "direction": "I"
+          },
+          "note_off": {
+            "direction": "I"
+          },
+          "trigger": {
+            "direction": "I"
+          },
+          "vca_adsr": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "vcf_adsr": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "mod_adsr": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "vca_out": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          },
+          "vcf_out": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          },
+          "mod_out": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          }
+        }
+      },
+      "oscilator_stub_0": {
+        "vlnv": "xilinx.com:module_ref:oscilator_stub:1.0",
+        "xci_name": "zynq_system_oscilator_stub_0_0",
+        "xci_path": "ip\\zynq_system_oscilator_stub_0_0\\zynq_system_oscilator_stub_0_0.xci",
+        "inst_hier_path": "oscilator_stub_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "oscilator_stub",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "zynq_system_processing_system7_0_1_FCLK_CLK0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "const_prop"
+              }
+            }
+          },
+          "note_on": {
+            "direction": "I"
+          },
+          "note_off": {
+            "direction": "I"
+          },
+          "trigger": {
+            "direction": "I"
+          },
+          "waveform_sel": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "note_index": {
+            "direction": "I",
+            "left": "6",
+            "right": "0"
+          },
+          "outout_oscilator": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
           }
         }
       }
@@ -1006,82 +1109,55 @@
       }
     },
     "nets": {
-      "fifo_adapter_0_count": {
-        "ports": [
-          "hier_0/count_0",
-          "count_0"
-        ]
-      },
-      "fifo_reader_0_data_valid": {
-        "ports": [
-          "hier_0/data_valid_0",
-          "data_valid_0"
-        ]
-      },
-      "fifo_reader_0_note_frequency": {
-        "ports": [
-          "hier_0/note_frequency_0",
-          "note_frequency_0"
-        ]
-      },
       "fifo_reader_0_note_off": {
         "ports": [
           "hier_0/note_off_0",
-          "note_off_0"
-        ]
-      },
-      "fifo_reader_0_note_on": {
-        "ports": [
-          "hier_0/note_on_0",
-          "note_on_0"
+          "envelope_stub_0/note_off",
+          "oscilator_stub_0/note_off"
         ]
       },
       "fifo_reader_0_trigger": {
         "ports": [
           "hier_0/trigger_0",
-          "trigger_0"
-        ]
-      },
-      "fifo_reader_0_velocity": {
-        "ports": [
-          "hier_0/velocity_0",
-          "velocity_0"
+          "envelope_stub_0/trigger",
+          "oscilator_stub_0/trigger"
         ]
       },
       "hier_0_mod_adsr_0": {
         "ports": [
           "hier_0/mod_adsr_0",
-          "mod_adsr_0"
+          "envelope_stub_0/mod_adsr"
+        ]
+      },
+      "hier_0_note_index": {
+        "ports": [
+          "hier_0/note_index",
+          "oscilator_stub_0/note_index"
+        ]
+      },
+      "hier_0_note_on_0": {
+        "ports": [
+          "hier_0/note_on_0",
+          "oscilator_stub_0/note_on",
+          "envelope_stub_0/note_on"
         ]
       },
       "hier_0_vca_adsr_0": {
         "ports": [
           "hier_0/vca_adsr_0",
-          "vca_adsr_0"
+          "envelope_stub_0/vca_adsr"
         ]
       },
       "hier_0_vcf_adsr_0": {
         "ports": [
           "hier_0/vcf_adsr_0",
-          "vcf_adsr_0"
+          "envelope_stub_0/vcf_adsr"
         ]
       },
       "hier_0_waveform_sel_0": {
         "ports": [
           "hier_0/waveform_sel_0",
-          "waveform_sel_0"
-        ]
-      },
-      "pop_ctrl_0_1": {
-        "ports": [
-          "pop_ctrl_0",
-          "hier_0/pop_ctrl_0"
-        ]
-      },
-      "pop_ctrl_en_0_1": {
-        "ports": [
-          "pop_ctrl_en_0",
-          "hier_0/pop_ctrl_en_0"
+          "oscilator_stub_0/waveform_sel"
         ]
       },
       "processing_system7_0_FCLK_CLK0": {
@@ -1092,7 +1168,9 @@
           "ps7_0_axi_periph/S00_ACLK",
           "ps7_0_axi_periph/ACLK",
           "processing_system7_0/M_AXI_GP0_ACLK",
-          "hier_0/S_AXI_ACLK"
+          "hier_0/S_AXI_ACLK",
+          "envelope_stub_0/clk",
+          "oscilator_stub_0/clk"
         ]
       },
       "processing_system7_0_FCLK_RESET0_N": {
@@ -1107,7 +1185,9 @@
           "ps7_0_axi_periph/M00_ARESETN",
           "ps7_0_axi_periph/S00_ARESETN",
           "ps7_0_axi_periph/ARESETN",
-          "hier_0/S_AXI_ARESETN"
+          "hier_0/S_AXI_ARESETN",
+          "envelope_stub_0/rst",
+          "oscilator_stub_0/rst"
         ]
       },
       "rst_ps7_0_100M_peripheral_reset": {

@@ -157,7 +157,7 @@ sub_sel <= param(3 downto 2);
           end if;
         when WAVEFORM =>
           wav_sel <= '1';
-        when NONE =>
+        when others =>
           null;
       end case;
     end if;

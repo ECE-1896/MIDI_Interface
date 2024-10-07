@@ -1,7 +1,7 @@
 --Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
---Date        : Thu Oct  3 11:01:27 2024
+--Date        : Mon Oct  7 03:31:53 2024
 --Host        : bigolBox running 64-bit major release  (build 9200)
 --Command     : generate_target zynq_system_wrapper.bd
 --Design      : zynq_system_wrapper
@@ -33,33 +33,13 @@ entity zynq_system_wrapper is
     FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    FIXED_IO_ps_srstb : inout STD_LOGIC;
-    count_0 : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    data_valid_0 : out STD_LOGIC;
-    note_frequency_0 : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    note_off_0 : out STD_LOGIC;
-    note_on_0 : out STD_LOGIC;
-    param_number_0 : out STD_LOGIC_VECTOR ( 6 downto 0 );
-    param_value_0 : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    param_write_0 : out STD_LOGIC;
-    trigger_0 : out STD_LOGIC;
-    velocity_0 : out STD_LOGIC_VECTOR ( 7 downto 0 )
+    FIXED_IO_ps_srstb : inout STD_LOGIC
   );
 end zynq_system_wrapper;
 
 architecture STRUCTURE of zynq_system_wrapper is
   component zynq_system is
   port (
-    data_valid_0 : out STD_LOGIC;
-    note_frequency_0 : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    note_off_0 : out STD_LOGIC;
-    note_on_0 : out STD_LOGIC;
-    param_number_0 : out STD_LOGIC_VECTOR ( 6 downto 0 );
-    param_value_0 : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    param_write_0 : out STD_LOGIC;
-    trigger_0 : out STD_LOGIC;
-    velocity_0 : out STD_LOGIC_VECTOR ( 7 downto 0 );
-    count_0 : out STD_LOGIC_VECTOR ( 7 downto 0 );
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
     DDR_ck_n : inout STD_LOGIC;
@@ -106,16 +86,6 @@ zynq_system_i: component zynq_system
       FIXED_IO_mio(53 downto 0) => FIXED_IO_mio(53 downto 0),
       FIXED_IO_ps_clk => FIXED_IO_ps_clk,
       FIXED_IO_ps_porb => FIXED_IO_ps_porb,
-      FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
-      count_0(7 downto 0) => count_0(7 downto 0),
-      data_valid_0 => data_valid_0,
-      note_frequency_0(31 downto 0) => note_frequency_0(31 downto 0),
-      note_off_0 => note_off_0,
-      note_on_0 => note_on_0,
-      param_number_0(6 downto 0) => param_number_0(6 downto 0),
-      param_value_0(7 downto 0) => param_value_0(7 downto 0),
-      param_write_0 => param_write_0,
-      trigger_0 => trigger_0,
-      velocity_0(7 downto 0) => velocity_0(7 downto 0)
+      FIXED_IO_ps_srstb => FIXED_IO_ps_srstb
     );
 end STRUCTURE;

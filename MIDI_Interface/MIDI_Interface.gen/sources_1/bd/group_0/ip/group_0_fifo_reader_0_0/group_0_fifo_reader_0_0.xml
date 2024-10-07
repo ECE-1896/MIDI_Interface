@@ -233,7 +233,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>note</spirit:name>
+        <spirit:name>note_index</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>

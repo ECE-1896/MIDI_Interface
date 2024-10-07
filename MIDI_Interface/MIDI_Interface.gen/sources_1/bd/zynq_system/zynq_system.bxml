@@ -2,13 +2,56 @@
 <Root MajorVersion="0" MinorVersion="39">
   <CompositeFile CompositeFileTopName="zynq_system" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1728101680"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1728101680"/>
-    <Generation Name="SIMULATION" State="STALE" Timestamp="1728101680"/>
-    <Generation Name="HW_HANDOFF" State="STALE" Timestamp="1728101680"/>
-    <FileCollection Name="SOURCES" Type="SOURCES"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1728286325"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1728286325"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1728286325"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1728286325"/>
+    <FileCollection Name="SOURCES" Type="SOURCES">
+      <File Name="synth\zynq_system.vhd" Type="VHDL">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+      </File>
+      <File Name="sim\zynq_system.vhd" Type="VHDL">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="zynq_system_ooc.xdc" Type="XDC">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="OUT_OF_CONTEXT"/>
+      </File>
+      <File Name="hw_handoff\zynq_system.hwh" Type="HwHandoff">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+      </File>
+      <File Name="zynq_system.bda">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+      </File>
+      <File Name="hw_handoff\zynq_system_bd.tcl">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+      </File>
+      <File Name="synth\zynq_system.hwdef">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+      </File>
+      <File Name="sim\zynq_system.protoinst">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+    </FileCollection>
     <BlockContainerCollection>
-      <BlockContainer InstPath="/hier_0" IsPR="false" State="Stale">
+      <BlockContainer InstPath="/hier_0" IsPR="false" State="Generated">
         <ActiveVariantSynth FileName="bd\group_0_inst_0\group_0_inst_0.bd"/>
         <ActiveVariantSim FileName="bd\group_0_inst_0\group_0_inst_0.bd"/>
         <VariantsCollection>
@@ -21,12 +64,12 @@
         <TopFile Name="..\..\..\..\MIDI_Interface.srcs\sources_1\bd\group_0\group_0.bd"/>
         <FileCollection>
           <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\new\fifo_adapter.vhd"/>
-          <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\new\fifo_reader.vhd"/>
           <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\imports\sources_1\new\adsr_config.vhd"/>
           <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\imports\sources_1\imports\new\dflipflop.vhd"/>
           <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\imports\sources_1\imports\new\n_parallel_register.vhd"/>
           <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\imports\sources_1\new\ranger_mapper.vhd"/>
           <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\imports\sources_1\new\param_file.vhd"/>
+          <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\new\fifo_reader.vhd"/>
           <File Name="..\..\..\..\MIDI_Interface.srcs\sources_1\bd\group_0\group_0.bd"/>
         </FileCollection>
       </ModuleReference>

@@ -22,7 +22,7 @@ entity fifo_reader is
 
     trigger         : out std_logic;
     --note_frequency  : out std_logic_vector(31 downto 0);
-    note            : out std_logic_vector(6 downto 0);
+    note_index      : out std_logic_vector(6 downto 0);
     velocity        : out std_logic_vector(7 downto 0);
 
     note_on         : out std_logic;
@@ -115,14 +115,14 @@ begin
 -- being pressed before another is released.
 
 trigger_process: process (trig_signal) is
-  variable previous_note : unsigned(6 downto 0) := 0;
+  variable previous_note : unsigned(6 downto 0) := "0000000";
     begin
       if trig_signal = '1' then
         note_state <= not note_state;
       end if;
     previous_note := note_number;
     --note_frequency <= midi_freq_lut(to_integer(note_number));
-    note_frequency <= to_standard_logic_vector(note_number);
+    note_index <= std_logic_vector(note_number);
     note_on  <= trig_signal and (not note_state);
     note_off <= trig_signal and note_state;
     end process;
