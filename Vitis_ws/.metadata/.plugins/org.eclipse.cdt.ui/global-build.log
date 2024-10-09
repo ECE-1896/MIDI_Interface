@@ -1,49 +1,9 @@
 Nothing to build in platform 'zynq_system_wrapper'
 
-06:02:13 **** Incremental Build of configuration Debug for project MIDI_decoder ****
+23:17:04 **** Incremental Build of configuration Debug for project MIDI_decoder ****
 make all 
 make --no-print-directory pre-build
 a9-linaro-pre-build-step
 ' '
 make --no-print-directory main-build
-'Building file: ../src/midi_uart.cpp'
-'Invoking: ARM v7 g++ compiler'
-arm-none-eabi-g++ -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/midi_uart.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -IC:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/Vitis_ws/zynq_system_wrapper/export/zynq_system_wrapper/sw/zynq_system_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/midi_uart.d" -MT"src/midi_uart.o" -o "src/midi_uart.o" "../src/midi_uart.cpp"
-../src/midi_uart.cpp: In function 'void SetupUartInterrupts()':
-../src/midi_uart.cpp:85:34: error: 'XIL_EXCEPTION_ID_INT' was not declared in this scope
-   85 |     Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
-      |                                  ^~~~~~~~~~~~~~~~~~~~
-../src/midi_uart.cpp:86:35: error: 'Xil_ExceptionHandler' was not declared in this scope; did you mean 'XExceptionHandler'?
-   86 |                                  (Xil_ExceptionHandler)XScuGic_InterruptHandler,
-      |                                   ^~~~~~~~~~~~~~~~~~~~
-      |                                   XExceptionHandler
-../src/midi_uart.cpp:87:35: error: 'IntcInstance' was not declared in this scope
-   87 |                                  &IntcInstance);
-      |                                   ^~~~~~~~~~~~
-../src/midi_uart.cpp:85:5: error: 'Xil_ExceptionRegisterHandler' was not declared in this scope
-   85 |     Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT,
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../src/midi_uart.cpp:88:5: error: 'Xil_ExceptionEnable' was not declared in this scope; did you mean 'XExceptionHandler'?
-   88 |     Xil_ExceptionEnable();
-      |     ^~~~~~~~~~~~~~~~~~~
-      |     XExceptionHandler
-../src/midi_uart.cpp:92:22: error: 'Xil_InterruptHandler' was not declared in this scope; did you mean 'XInterruptHandler'?
-   92 |                     (Xil_InterruptHandler)UartInterruptHandler,
-      |                      ^~~~~~~~~~~~~~~~~~~~
-      |                      XInterruptHandler
-../src/midi_uart.cpp:91:5: error: 'XScuGic_Connect' was not declared in this scope
-   91 |     XScuGic_Connect(&IntcInstance, XPAR_XUARTPS_1_INTR,
-      |     ^~~~~~~~~~~~~~~
-../src/midi_uart.cpp:96:5: error: 'XScuGic_Enable' was not declared in this scope
-   96 |     XScuGic_Enable(&IntcInstance, XPAR_XUARTPS_1_INTR);
-      |     ^~~~~~~~~~~~~~
-../src/midi_uart.cpp: In function 'void ProcessMidiMessage(u8, u8, u8)':
-../src/midi_uart.cpp:132:4: error: 'message_out' was not declared in this scope; did you mean 'message_out_ptr'?
-  132 |    message_out[0] = ((0x80 | data1)<<8) | data2;
-      |    ^~~~~~~~~~~
-      |    message_out_ptr
-../src/midi_uart.cpp:139:3: error: 'queue_status' was not declared in this scope
-  139 |   queue_status = *queue_capacity_ptr;
-      |   ^~~~~~~~~~~~
-make[1]: *** [src/subdir.mk:23: src/midi_uart.o] Error 1
-make: *** [makefile:46: all] Error 2
+make[1]: Nothing to be done for 'main-build'.

@@ -1,1 +1,13 @@
 *.wdb
+*.vscode
+*.v4p
+
+*.tmp
+*.cache
+*.runs
+*.gen
+
+*.tmp/*
+*.cache/*
+*.runs/*
+*.gen/*

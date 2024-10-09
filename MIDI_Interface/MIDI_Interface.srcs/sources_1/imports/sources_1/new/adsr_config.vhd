@@ -27,21 +27,21 @@ entity adsr_config is
     clear: in std_logic;
     change: in std_logic;
     param: in std_logic_vector(1 downto 0);
-    value: in std_logic_vector(7 downto 0);
-    adsr_out: out std_logic_vector(31 downto 0)
+    value: in std_logic_vector(6 downto 0);
+    adsr_out: out std_logic_vector(27 downto 0)
   );
 end adsr_config;
 architecture RTL of adsr_config is
 
 component pl_reg is
-  generic (n : integer := 8);
+  generic (n : integer := 7);
   port (D              : in  STD_LOGIC_VECTOR(n - 1 downto 0);
         CLK, LOAD, RST : in  STD_LOGIC;
         Q              : out STD_LOGIC_VECTOR(n - 1 downto 0)
         );
 end component;
 
-signal attack_reg, decay_reg, sustain_reg, rel_reg : std_logic_vector(7 downto 0) := (others => '0');
+signal attack_reg, decay_reg, sustain_reg, rel_reg : std_logic_vector(6 downto 0) := (others => '0');
 signal modify : std_logic_vector(3 downto 0) := (others => '0');
 begin
 
@@ -75,7 +75,7 @@ reg_attack: pl_reg port map (
   CLK  => clk,
   LOAD => modify(0),
   RST  => clear,
-  Q    => adsr_out(7 downto 0)
+  Q    => adsr_out(6 downto 0)
 );
 
 reg_decay: pl_reg port map (
@@ -83,7 +83,7 @@ reg_decay: pl_reg port map (
   CLK  => clk,
   LOAD => modify(1),
   RST  => clear,
-  Q    => adsr_out(15 downto 8)
+  Q    => adsr_out(13 downto 7)
 );
 
 reg_sustain: pl_reg port map (
@@ -91,7 +91,7 @@ reg_sustain: pl_reg port map (
   CLK  => clk,
   LOAD => modify(2),
   RST  => clear,
-  Q    => adsr_out(23 downto 16)
+  Q    => adsr_out(20 downto 14)
 );
 
 reg_rel: pl_reg port map (
@@ -99,7 +99,7 @@ reg_rel: pl_reg port map (
   CLK  => clk,
   LOAD => modify(3),
   RST  => clear,
-  Q    => adsr_out(31 downto 24)
+  Q    => adsr_out(27 downto 21)
 );
 
 end architecture RTL;

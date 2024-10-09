@@ -1,5 +1,7 @@
 #include "xuartps.h"
 #include "xparameters.h"
+#include "xil_exception.h"
+#include "xscugic.h"
 
 #define BUFFER_SIZE 256
 #define BASE_PL 0x43c00000
@@ -18,7 +20,7 @@ void SetupUartInterrupts(void);
 void InitializeBuffer(CircularBuffer* buffer);
 void StoreByteInBuffer(u8 byte);
 int ReadByteFromBuffer(u8* byte);
-void ProcessMidiMessage(u8 status, u8 data1, u8 data2);
+int ProcessMidiMessage(u8 status, u8 data1, u8 data2);
 void ParseUartMessages(void);
 void ProcessSystemMessage(u8 status);
 
@@ -26,9 +28,10 @@ void ProcessSystemMessage(u8 status);
 
 XUartPs UartPs;
 CircularBuffer midiBuffer;
-uint16_t* message_out_ptr = (uint16_t*)BASE_PL;
-uint8_t* queue_capacity_ptr = (uint8_t *)BASE_PL + sizeof(uint16_t*);
-uint8_t* queue_full_ptr = queue_capacity_ptr + sizeof(uint8_t*);
+XScuGic IntcInstance;  // The GIC instance
+
+uint32_t* pl_base = (uint32_t*)BASE_PL;
+
 
 int SetupUart(void){
 
@@ -98,8 +101,6 @@ void SetupUartInterrupts(void)
 }
 
 
-
-
 void InitializeBuffer(CircularBuffer* buffer) {
     buffer->head = 0;
     buffer->tail = 0;
@@ -123,22 +124,23 @@ int ReadByteFromBuffer(u8* byte) {
     return 1;  // Byte read successfully
 }
 
-void ProcessMidiMessage(u8 status, u8 data1, u8 data2)
+int ProcessMidiMessage(u8 status, u8 data1, u8 data2)
 {
 	// if the internal queue is not full
-	if(!*queue_full_ptr){
+	if(pl_base[2]){
 		switch(status){
 		case NOTE_ON:
 		case NOTE_OFF:
-			message_out[0] = ((0x80 | data1)<<8) | data2;
+			pl_base[0] = ((0x80 | data1)<<8) | data2;
 			break;
 		case CC:
-			message_out[0] = (data1 << 8) | data2;
+			pl_base[0] = (data1 << 8) | data2;
 		default:
 			break;
 		}
-		queue_status = *queue_capacity_ptr;
+		 return pl_base[2];
 	}
+	return -1;
 }
 
 void ParseUartMessages(void)
@@ -173,7 +175,7 @@ void ParseUartMessages(void)
 
 void ProcessSystemMessage(u8 status)
 {
-    // Handle system messages (e.g., timing clock, start, stop, etc.)
+    // Handle system messages TBD
 }
 
 int main(){
@@ -185,6 +187,7 @@ int main(){
 
 	SetupUartInterrupts();
 
+	//main loop
 	while (1) {
 	    ParseUartMessages();
 	    // To be continued

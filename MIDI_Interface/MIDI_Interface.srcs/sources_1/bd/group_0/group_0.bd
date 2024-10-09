@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x999F0B8C0A4C0874",
+      "boundary_crc": "0x590E467F33E02C06",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../MIDI_Interface.gen/sources_1/bd/group_0",
       "name": "group_0",
@@ -175,30 +175,13 @@
           }
         }
       },
-      "count_0": {
+      "queue_cap": {
         "direction": "O",
         "left": "7",
         "right": "0"
       },
       "data_valid_0": {
         "direction": "O"
-      },
-      "mod_adsr_0": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "note_off_0": {
-        "direction": "O"
-      },
-      "note_on_0": {
-        "direction": "O"
-      },
-      "pop_ctrl_0": {
-        "direction": "I"
-      },
-      "pop_ctrl_en_0": {
-        "direction": "I"
       },
       "rst": {
         "type": "rst",
@@ -216,29 +199,44 @@
       "trigger_0": {
         "direction": "O"
       },
-      "vca_adsr_0": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "vcf_adsr_0": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
       "velocity_0": {
         "direction": "O",
-        "left": "7",
-        "right": "0"
-      },
-      "waveform_sel_0": {
-        "direction": "O",
-        "left": "1",
+        "left": "6",
         "right": "0"
       },
       "note_index": {
         "direction": "O",
         "left": "6",
+        "right": "0"
+      },
+      "trigger_states_0": {
+        "direction": "O",
+        "left": "0",
+        "right": "0"
+      },
+      "cpu_cap": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "mod_adsr_0": {
+        "direction": "O",
+        "left": "27",
+        "right": "0"
+      },
+      "vca_adsr_0": {
+        "direction": "O",
+        "left": "27",
+        "right": "0"
+      },
+      "vcf_adsr_0": {
+        "direction": "O",
+        "left": "27",
+        "right": "0"
+      },
+      "waveform_sel_out_0": {
+        "direction": "O",
+        "left": "1",
         "right": "0"
       }
     },
@@ -250,7 +248,7 @@
         "inst_hier_path": "axi_regmap_0",
         "parameters": {
           "NUM_REGS": {
-            "value": "3"
+            "value": "4"
           },
           "WIDTH0": {
             "value": "16"
@@ -260,6 +258,9 @@
           },
           "WIDTH2": {
             "value": "1"
+          },
+          "WIDTH3": {
+            "value": "1"
           }
         }
       },
@@ -268,6 +269,11 @@
         "xci_name": "group_0_fifo_adapter_0_0",
         "xci_path": "ip\\group_0_fifo_adapter_0_0\\group_0_fifo_adapter_0_0.xci",
         "inst_hier_path": "fifo_adapter_0",
+        "parameters": {
+          "DATA_WIDTH": {
+            "value": "16"
+          }
+        },
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "fifo_adapter",
@@ -279,21 +285,11 @@
             "left": "15",
             "right": "0"
           },
-          "data_out": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
           "push": {
             "direction": "I"
           },
           "pop": {
             "direction": "I"
-          },
-          "count": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
           },
           "clk": {
             "type": "clk",
@@ -318,10 +314,20 @@
               }
             }
           },
-          "not_empty": {
+          "data_out": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "count": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "wait_push": {
             "direction": "O"
           },
-          "full": {
+          "not_empty": {
             "direction": "O"
           }
         }
@@ -331,6 +337,11 @@
         "xci_name": "group_0_fifo_reader_0_0",
         "xci_path": "ip\\group_0_fifo_reader_0_0\\group_0_fifo_reader_0_0.xci",
         "inst_hier_path": "fifo_reader_0",
+        "parameters": {
+          "DATA_WIDTH": {
+            "value": "16"
+          }
+        },
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "fifo_reader",
@@ -369,19 +380,24 @@
           "pop_ctrl": {
             "direction": "I"
           },
-          "pop_data": {
-            "direction": "O"
-          },
           "data_in": {
             "direction": "I",
             "left": "15",
             "right": "0"
+          },
+          "pop_data": {
+            "direction": "O"
           },
           "data_valid": {
             "direction": "O"
           },
           "trigger": {
             "direction": "O"
+          },
+          "trigger_states": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
           },
           "note_index": {
             "direction": "O",
@@ -390,14 +406,8 @@
           },
           "velocity": {
             "direction": "O",
-            "left": "7",
+            "left": "6",
             "right": "0"
-          },
-          "note_on": {
-            "direction": "O"
-          },
-          "note_off": {
-            "direction": "O"
           },
           "param_write": {
             "direction": "O"
@@ -409,7 +419,7 @@
           },
           "param_value": {
             "direction": "O",
-            "left": "7",
+            "left": "6",
             "right": "0"
           }
         }
@@ -454,27 +464,27 @@
           },
           "value": {
             "direction": "I",
-            "left": "7",
+            "left": "6",
             "right": "0"
           },
-          "waveform_sel": {
+          "waveform_sel_out": {
             "direction": "O",
             "left": "1",
             "right": "0"
           },
           "vca_adsr": {
             "direction": "O",
-            "left": "31",
+            "left": "27",
             "right": "0"
           },
           "vcf_adsr": {
             "direction": "O",
-            "left": "31",
+            "left": "27",
             "right": "0"
           },
           "mod_adsr": {
             "direction": "O",
-            "left": "31",
+            "left": "27",
             "right": "0"
           }
         }
@@ -501,29 +511,48 @@
           "fifo_adapter_0/push"
         ]
       },
+      "axi_regmap_0_REG1_OUT": {
+        "ports": [
+          "axi_regmap_0/REG1_OUT",
+          "cpu_cap"
+        ]
+      },
+      "axi_regmap_0_REG2_OUT": {
+        "ports": [
+          "axi_regmap_0/REG2_OUT",
+          "fifo_reader_0/pop_ctrl_en"
+        ]
+      },
+      "axi_regmap_0_REG3_OUT": {
+        "ports": [
+          "axi_regmap_0/REG3_OUT",
+          "fifo_reader_0/pop_ctrl"
+        ]
+      },
       "fifo_adapter_0_count": {
         "ports": [
           "fifo_adapter_0/count",
-          "count_0",
+          "queue_cap",
           "axi_regmap_0/REG1_IN"
         ]
       },
       "fifo_adapter_0_data_out": {
         "ports": [
           "fifo_adapter_0/data_out",
+          "axi_regmap_0/REG0_IN",
           "fifo_reader_0/data_in"
-        ]
-      },
-      "fifo_adapter_0_full": {
-        "ports": [
-          "fifo_adapter_0/full",
-          "axi_regmap_0/REG2_IN"
         ]
       },
       "fifo_adapter_0_not_empty": {
         "ports": [
           "fifo_adapter_0/not_empty",
           "fifo_reader_0/not_empty"
+        ]
+      },
+      "fifo_adapter_0_wait_push": {
+        "ports": [
+          "fifo_adapter_0/wait_push",
+          "axi_regmap_0/REG2_IN"
         ]
       },
       "fifo_reader_0_data_valid": {
@@ -536,18 +565,6 @@
         "ports": [
           "fifo_reader_0/note_index",
           "note_index"
-        ]
-      },
-      "fifo_reader_0_note_off": {
-        "ports": [
-          "fifo_reader_0/note_off",
-          "note_off_0"
-        ]
-      },
-      "fifo_reader_0_note_on": {
-        "ports": [
-          "fifo_reader_0/note_on",
-          "note_on_0"
         ]
       },
       "fifo_reader_0_param_number": {
@@ -580,6 +597,12 @@
           "trigger_0"
         ]
       },
+      "fifo_reader_0_trigger_states": {
+        "ports": [
+          "fifo_reader_0/trigger_states",
+          "trigger_states_0"
+        ]
+      },
       "fifo_reader_0_velocity": {
         "ports": [
           "fifo_reader_0/velocity",
@@ -604,22 +627,10 @@
           "vcf_adsr_0"
         ]
       },
-      "param_file_0_waveform_sel": {
+      "param_file_0_waveform_sel_out": {
         "ports": [
-          "param_file_0/waveform_sel",
-          "waveform_sel_0"
-        ]
-      },
-      "pop_ctrl_0_1": {
-        "ports": [
-          "pop_ctrl_0",
-          "fifo_reader_0/pop_ctrl"
-        ]
-      },
-      "pop_ctrl_en_0_1": {
-        "ports": [
-          "pop_ctrl_en_0",
-          "fifo_reader_0/pop_ctrl_en"
+          "param_file_0/waveform_sel_out",
+          "waveform_sel_out_0"
         ]
       },
       "processing_system7_0_FCLK_CLK0": {

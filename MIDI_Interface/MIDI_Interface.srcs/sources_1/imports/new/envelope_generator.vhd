@@ -30,10 +30,10 @@ entity envelope_generator is
     clk           : in  std_logic;
     rst_n         : in  std_logic;
     gate          : in  std_logic;
-    attack_rate   : in  std_logic_vector(7 downto 0);
-    decay_rate    : in  std_logic_vector(7 downto 0);
-    sustain_level : in  std_logic_vector(7 downto 0);
-    release_rate  : in  std_logic_vector(7 downto 0);
+    attack_rate   : in  std_logic_vector(6 downto 0);
+    decay_rate    : in  std_logic_vector(6 downto 0);
+    sustain_level : in  std_logic_vector(6 downto 0);
+    release_rate  : in  std_logic_vector(6 downto 0);
     envelope_out  : out std_logic_vector(AMPLITUDE_WIDTH - 1 downto 0)
   );
 end entity;
@@ -53,11 +53,11 @@ begin
       state <= IDLE;
       envelope <= (others => '0');
     elsif rising_edge(clk) then
-      -- Scale 8-bit inputs to AMPLITUDE_WIDTH
-      scaled_attack_rate  := (unsigned(attack_rate) & (AMPLITUDE_WIDTH - 9 downto 0 => '0'));
-      scaled_sustain      := (unsigned(sustain_level) & (AMPLITUDE_WIDTH - 9 downto 0 => '0'));
-      scaled_decay_rate   := (unsigned(decay_rate) & (AMPLITUDE_WIDTH - 9 downto 0 => '0'));
-      scaled_release_rate := (unsigned(release_rate) & (AMPLITUDE_WIDTH - 9 downto 0 => '0'));
+      -- Scale 7-bit inputs to AMPLITUDE_WIDTH
+      scaled_attack_rate  := (unsigned(attack_rate) & (AMPLITUDE_WIDTH - 8 downto 0 => '0'));
+      scaled_sustain      := (unsigned(sustain_level) & (AMPLITUDE_WIDTH - 8 downto 0 => '0'));
+      scaled_decay_rate   := (unsigned(decay_rate) & (AMPLITUDE_WIDTH - 8 downto 0 => '0'));
+      scaled_release_rate := (unsigned(release_rate) & (AMPLITUDE_WIDTH - 8 downto 0 => '0'));
 
 
       case state is
@@ -68,6 +68,7 @@ begin
         when ATTACK =>
           if gate = '0' then
             state <= REL;
+          -- if the envelope is at max, skip attack phase
           elsif envelope = (envelope'range => '1') then
             state <= DECAY;
           else

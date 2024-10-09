@@ -37,18 +37,18 @@ entity param_file is
     clk : in STD_LOGIC;
     clear : in STD_LOGIC;
     param : in STD_LOGIC_VECTOR(6 downto 0);
-    value : in STD_LOGIC_VECTOR(7 downto 0);
-    waveform_sel: out STD_LOGIC_VECTOR(1 downto 0);
-    vca_adsr : out STD_LOGIC_VECTOR(31 downto 0);
-    vcf_adsr : out STD_LOGIC_VECTOR(31 downto 0);
-    mod_adsr : out STD_LOGIC_VECTOR(31 downto 0)
+    value : in STD_LOGIC_VECTOR(6 downto 0);
+    waveform_sel_out : out STD_LOGIC_VECTOR(1 downto 0);
+    vca_adsr : out STD_LOGIC_VECTOR(27 downto 0);
+    vcf_adsr : out STD_LOGIC_VECTOR(27 downto 0);
+    mod_adsr : out STD_LOGIC_VECTOR(27 downto 0)
   );
 end param_file;
 
 architecture Behavioral of param_file is
 
 component pl_reg is
-  generic (n : integer := 8);
+  generic (n : integer := 7);
   port (D              : in  STD_LOGIC_VECTOR(n - 1 downto 0);
         CLK, LOAD, RST : in  STD_LOGIC;
         Q              : out STD_LOGIC_VECTOR(n - 1 downto 0)
@@ -62,14 +62,14 @@ component adsr_config is
       clear    : in  std_logic;
       change   : in  std_logic;
       param    : in  std_logic_vector(1 downto 0);
-      value    : in  std_logic_vector(7 downto 0);
-      adsr_out : out std_logic_vector(31 downto 0)
+      value    : in  std_logic_vector(6 downto 0);
+      adsr_out : out std_logic_vector(27 downto 0)
     );
 end component;
 
 component range_mapper is
   generic (
-    INPUT_WIDTH  : positive := 8;
+    INPUT_WIDTH  : positive := 7;
     OUTPUT_WIDTH : positive := 2
   );
   port (
@@ -78,12 +78,14 @@ component range_mapper is
   );
 end component;
 
-type param_type is (ADSR, WAVEFORM, DETUNE_V, DETUNE_AMT, NONE);
-type adsr_out_array is array(0 to 2) of std_logic_vector(31 downto 0);
+type param_type is (ADSR, WAVEFORM, NONE);
+type adsr_out_array is array(0 to 2) of std_logic_vector(27 downto 0);
 
 -- Parameter outputs
 signal wav_type : std_logic_vector(1 downto 0);
 signal adsr_out : adsr_out_array;
+
+
 
 
 -- Selects for the registers
@@ -109,7 +111,7 @@ port map (
   CLK => clk,
   LOAD => wav_sel,
   RST => clear,
-  Q => waveform_sel
+  Q => waveform_sel_out
 );
 
 
@@ -135,8 +137,6 @@ sub_sel <= param(3 downto 2);
   with param_mask select
     param_sel <=  ADSR when "001",
                   WAVEFORM when "010",
-                  DETUNE_V when "011",
-                  DETUNE_AMT when "100",
                   NONE when others;
 
  --We have the type, now we need to target the correct register

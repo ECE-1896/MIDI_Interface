@@ -6,12 +6,13 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity oscilator_stub is
     Port (
         clk : in STD_LOGIC;
-        rst : in STD_LOGIC;
-        note_on : in STD_LOGIC;
-        note_off : in STD_LOGIC;
+        rst_n : in STD_LOGIC;
+        valid : in STD_LOGIC;
+        note_state : in STD_LOGIC;
         trigger : in STD_LOGIC;
         waveform_sel : in STD_LOGIC_VECTOR(1 downto 0);
         note_index : in STD_LOGIC_VECTOR(6 downto 0);
+        velocity   : in STD_LOGIC_VECTOR(6 downto 0);
 
         outout_oscilator : out STD_LOGIC_VECTOR(23 downto 0)
     );
@@ -19,26 +20,27 @@ end oscilator_stub;
 
 architecture Behavioral of oscilator_stub is
     signal oscilator_out : STD_LOGIC_VECTOR(23 downto 0);
+    signal current_note : STD_LOGIC_VECTOR(6 downto 0);
 begin
 
-    process(clk, rst)
+    trigger_process: process(trigger, rst_n, valid)
     begin
-        if rst = '1' then
+        if rst_n = '0' then
+            current_note <= (others => '0');
+        elsif rising_edge(trigger) then
+            if valid = '1' then
+                current_note <= note_index;
+            end if;
+        end if;
+    end process;
+
+    process(clk, rst_n, trigger)
+    begin
+        if rst_n = '0' then
             oscilator_out <= (others => '0');
         elsif rising_edge(clk) then
-            if note_on = '1' then
-                case waveform_sel is
-                    when "00" =>
-                        oscilator_out <= "000000000000000000000000";
-                    when "01" =>
-                        oscilator_out <= "111111111111111111111111";
-                    when "10" =>
-                        oscilator_out <= "000000000000000000000000";
-                    when "11" =>
-                        oscilator_out <= "111111111111111111111111";
-                    when others =>
-                        oscilator_out <= "000000000000000000000000";
-                end case;
+            if note_state = '1' then
+                oscilator_out <= "000000" & waveform_sel & '0' & velocity & '0' & current_note;
             end if;
         end if;
     end process;
