@@ -1,0 +1,21 @@
+#include "testbench.hpp"
+#include <random>
+
+
+
+#ifdef DEBUG
+
+u8 message_type[3] = {NOTE_ON, NOTE_OFF, CC};
+
+int main(){
+	u32* pl_base = (u32*)BASE_PL;
+
+	i8 idx;
+	for(int i = 0; i < 256; i++){
+
+		switch(j)
+
+	}
+}
+
+#endif

@@ -1,9 +1,0 @@
-Nothing to build in platform 'zynq_system_wrapper'
-
-23:17:04 **** Incremental Build of configuration Debug for project MIDI_decoder ****
-make all 
-make --no-print-directory pre-build
-a9-linaro-pre-build-step
-' '
-make --no-print-directory main-build
-make[1]: Nothing to be done for 'main-build'.

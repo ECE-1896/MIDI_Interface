@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;MIDI_decoder/src/testbench.h&apos; to &apos;testbench.hpp&apos;" description="Rename resource &apos;testbench.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/testbench.h" name="testbench.hpp" stamp="1728448244330" updateReferences="true"/>
-</session>

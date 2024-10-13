@@ -1,0 +1,9 @@
+
+#define BASE_PL 0x700000000
+#define NOTE_ON  0x80
+#define NOTE_OFF 0x90
+#define CC 0xB0
+
+#define DEBUG 1
+
+#include "xparameters.h"

@@ -1,0 +1,65 @@
+#include "testbench.hpp"
+
+#ifdef DEBUG
+
+#include <random>
+#include <xil_types.h>
+#include <iostream>
+#include <limits.h>
+
+bool test_1(i8 m_type, u16 input);
+bool test_1(i8 m_type, u16 input);
+
+int main(){
+
+	//seed rng
+	srand(31);
+
+	//set the base pointer of the regmap
+	u32* pl_base = (u32*)BASE_PL;
+
+	//declare the index for tests
+	i8 idx = 0;
+
+	//disable the manual dequeue
+	pl_base[3] = 0;
+
+	//declaring u16 just to clarify bit alignment
+	u16 message;
+
+
+ 	for(u16 i = 0; i < UCHAR_MAX; i++){
+
+		//If the internal queue can be pushed too
+		if(pl_base[2]){
+
+			switch(idx){
+			case 0:
+				//send note code i with velocity i to on
+				message = (u16)(NOTE_ON | (i << 7) | i);
+				break;
+			case 1:
+				//same as above with note off
+				message = (u16)(NOTE_OFF | (i << 7) | i);
+				break;
+			case 2:
+				//with CC
+				message = (u16)(CC | (i << 7) | i);
+				break;
+			}
+			pl_base[0] = message;
+			// keep the index within {0,1,2}
+			++idx %= 3;
+		}
+	}
+}
+
+bool test_1(i8 m_type, u16 input){
+
+}
+
+bool test_1(i8 m_type, u16 input){
+
+}
+
+#endif

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="scw_hwspec" value="C:\Users\Matt\Documents\Vivado_Projects\MIDI_Interface\exported_platforms"/>
+	<item key="sdx_program_fpga_view_bit_bmm_browse_key" value="C:\Users\Matt\Documents\Vivado_Projects\MIDI_Interface\Vitis_ws\midi_interface\_ide\bitstream"/>
+	<item key="bsp_settings_file" value="C:\Users\Matt\Documents\Vivado_Projects\MIDI_Interface\Vitis_ws\synth_system\zynq_fsbl\zynq_fsbl_bsp"/>
+	<item key="platform_editor" value="C:\Users\Matt\Documents\Vivado_Projects\MIDI_Interface\Vitis_ws\synth_system\zynq_fsbl\zynq_fsbl_bsp"/>
+	<item key="npw_add_domain" value="C:\Users\Matt\Downloads\jammy.arm.3.0.1"/>
+</section>

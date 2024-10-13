@@ -1,0 +1,31 @@
+#include "testbench.hpp"
+#include <random>
+#include <xil_types.h>
+
+#ifdef DEBUG
+
+u8 message_type[3] = {NOTE_ON, NOTE_OFF, CC};
+
+int main(){
+	u32* pl_base = (u32*)BASE_PL;
+
+	i8 idx = 0;
+	for(int i = 0; i < 256; i++){
+
+		switch(idx){
+		case 0:
+
+			break;
+		case 1:
+
+			break;
+		case 2:
+
+			break;
+		default:
+		}
+
+	}
+}
+
+#endif

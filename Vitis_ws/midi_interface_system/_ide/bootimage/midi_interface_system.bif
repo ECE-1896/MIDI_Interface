@@ -1,0 +1,12 @@
+/* C:/Users/Matt/AppData/Local/Temp/bootgen_midi_interface_system13598186978292301841/sd_card_temp/boot.bif */
+/* Command to create bitstream .bin file:       */
+/*   bootgen -image <bif_file> -split bin -w    */
+/* Command to create BOOT.BIN file:             */
+/*   bootgen  -image <bif_file> -w -o i BOOT.BIN */
+/*synth_system*/
+the_ROM_image:
+{
+ [bootloader] C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/Vitis_ws/synth_system/export/synth_system/sw/synth_system/boot/fsbl.elf
+ C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/Vitis_ws/midi_interface/_ide/bitstream/synth_system.bit
+ C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/Vitis_ws/midi_interface/Release/midi_interface.elf
+}

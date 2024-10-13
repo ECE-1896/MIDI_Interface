@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<systemproject:SystemProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:systemproject="http://www.xilinx.com/systemproject" name="midi_interface_system" platform="C:/Users/Matt/Documents/Vivado_Projects/MIDI_Interface/Vitis_ws/synth_system/export/synth_system/synth_system.xpfm" platformUID="xilinx:board:midi_fpga_synth:0.1(custom)" sysConfig="synth_system" runtime="cpp" rootFSLocation="" linuxImage="" sysroot="">
+  <configuration name="Emulation-SW" id="com.xilinx.sdx.system.managedbuilder.swemu.configuration.1338375276">
+    <configBuildOptions xsi:type="systemproject:SystemOptions">
+      <applications name="midi_interface" domainName="standalone_ps7_cortexa9_0" domainPrettyName="standalone_ps7_cortexa9_0" appBuildConfig="Debug"/>
+    </configBuildOptions>
+    <lastBuildOptions xsi:type="systemproject:SystemOptions">
+      <applications name="midi_interface" domainName="standalone_ps7_cortexa9_0" domainPrettyName="standalone_ps7_cortexa9_0" appBuildConfig="Debug"/>
+    </lastBuildOptions>
+  </configuration>
+  <configuration name="Emulation-HW" id="com.xilinx.sdx.system.managedbuilder.hwemu.configuration.1800156975">
+    <configBuildOptions xsi:type="systemproject:SystemOptions" target="hw_emu">
+      <applications name="midi_interface" domainName="standalone_ps7_cortexa9_0" domainPrettyName="standalone_ps7_cortexa9_0" appBuildConfig="Debug"/>
+    </configBuildOptions>
+    <lastBuildOptions xsi:type="systemproject:SystemOptions" target="hw_emu">
+      <applications name="midi_interface" domainName="standalone_ps7_cortexa9_0" domainPrettyName="standalone_ps7_cortexa9_0" appBuildConfig="Debug"/>
+    </lastBuildOptions>
+  </configuration>
+  <configuration name="Hardware" id="com.xilinx.sdx.system.managedbuilder.hw.configuration.2112244367">
+    <configBuildOptions xsi:type="systemproject:SystemOptions" target="hw">
+      <applications name="midi_interface" domainName="standalone_ps7_cortexa9_0" domainPrettyName="standalone_ps7_cortexa9_0" appBuildConfig="Release"/>
+    </configBuildOptions>
+    <lastBuildOptions xsi:type="systemproject:SystemOptions" target="hw">
+      <applications name="midi_interface" domainName="standalone_ps7_cortexa9_0" domainPrettyName="standalone_ps7_cortexa9_0" appBuildConfig="Release"/>
+    </lastBuildOptions>
+  </configuration>
+</systemproject:SystemProject>
